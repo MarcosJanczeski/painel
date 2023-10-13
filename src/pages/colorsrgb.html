@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cores RGB</title>
+</head>
+
+<body style="display: flex; width: 100vw; flex-direction: column; margin: 0; padding: 0;">
+  <template id="line">
+    <section id="line" style="display: flex; width: 100vw; height: 50px;">
+    </section>
+  </template>
+  <template id="celula">
+    <section style="display: flex; width: 100vw; height: 50px; align-items: center;">
+      <div style="width: 100px;"></div>
+    </section>
+  </template>
+  <script>
+    function showContent() {
+      let red = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+      let green = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+      let blue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+      for (let r of red) {
+        for (let g of green) {
+          let line = document.createElement('div')
+          line.setAttribute('style', `display: flex; width: 100vw; height: 50px;`)
+          for (let b of blue) {
+            let celula = document.createElement('div')
+            celula.setAttribute('style', `display: flex; flex-grow: 1; height: 50px; align-items: center;  justify-content: space-evenly; background-color: #${r}${g}${b}`)
+            let whiteText = document.createElement('span')
+            whiteText.setAttribute('style', 'color: #fff')
+            whiteText.innerHTML = `#${r}${g}${b}`
+            let blackText = document.createElement('span')
+            blackText.setAttribute('style', 'color: #000')
+            blackText.innerHTML = `#${r}${g}${b}`
+            celula.appendChild(whiteText)
+            celula.appendChild(blackText)
+            //celula.innerHTML = `#${r}${g}${b}`
+            line.appendChild(celula)
+          }
+          document.body.appendChild(line)
+          console.log(line);
+        }
+      }
+    }
+    showContent()
+  </script>
+</body>
+
+</html>

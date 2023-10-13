@@ -1,12 +1,11 @@
-import { Button } from "@mui/material"
 import { Routes, Route, Navigate } from "react-router-dom"
-import { useTheme } from "../shared/contexts"
+import { useThemeContext } from "../shared/contexts"
 
 export const AppRoutes = () => {
-  const {toggleTheme} = useTheme()
+  const {theme, toggleTheme} = useThemeContext()
   return (
     <Routes>
-      <Route path="/" element={<Button variant="contained" color="primary" onClick={toggleTheme}>Teste</Button>} />
+      <Route path="/" element={<button style={{backgroundColor: theme.secondary.fill, padding: '8px 16px'}} onClick={toggleTheme}>TOGGLE THEME</button>} />
 
       <Route path="*" element={<Navigate to={'/'} />} />
     </Routes>
