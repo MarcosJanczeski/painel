@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import { useThemeContext } from "../contexts";
 import { MenuItem } from "./MenuItem";
 
 export const MenuLateral: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { theme, toggleTheme } = useThemeContext()
+  const { theme } = useThemeContext()
   return <>
     <div style={{
       width: '200px',
@@ -27,14 +26,15 @@ export const MenuLateral: React.FC<{ children: React.ReactNode }> = ({ children 
         }}
           src="avatar.jpg" />
       </div>
-      <div style={{ width: '100%', flex: 1 , flexDirection: 'column'}}>
-        <MenuItem text="Home" matIcon="home"/>
-        <MenuItem text="Painel" matIcon="dashboard"/>
-        <MenuItem text="Produtos" matIcon="view_list"/>
-        <MenuItem text="Fornecedores" matIcon="factory"/>
+      <div style={{ width: '100%', flex: 1, flexDirection: 'column' }}>
+        <MenuItem text="Home" matIcon="home" />
+        <MenuItem text="Painel" matIcon="dashboard" />
+        <MenuItem text="Produtos" matIcon="view_list" />
+        <MenuItem text="Fornecedores" matIcon="factory" />
+        <MenuItem text="Clientes" matIcon="group_add" />
       </div>
     </div >
-    <div style={{display: 'flex'}}>
+    <div style={{ display: 'flex' }}>
       {children}
     </div>
   </>
